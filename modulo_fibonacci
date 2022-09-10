@@ -1,0 +1,58 @@
+def fibonacci(n):
+  fib = []
+  for i in range(n):
+    if i == 0 or i == 1:
+      fib.append(i)
+      continue
+    else:
+      fib.append(fib[i-1] + fib[i-2])
+
+  return fib, fib[i], n, i
+
+#############################################################################
+
+def interspace(inicio = 0, fim = 1):
+  lista, valor_fim, length, index_fim =  fibonacci(fim)
+  inter_space = []
+  for i in range(inicio):
+    lista.pop(0)
+  return lista
+
+
+###########################################################################
+
+def fibonacci_since(since, size):
+  lista, valor_fim, length, index_fim =  fibonacci(since + 1)
+  ini = 0
+  for i in range(since + 1):
+    if lista[i] >= since:
+      ini = i
+      break
+    else:
+      continue
+  return interspace(ini, size + ini)
+
+############################################################################
+def fibonacci_forth(forth, size):
+  fib = []
+  for i in range(size):
+    if i == 0 or i == 1:
+      fib.append(forth)
+      continue
+    else:
+      fib.append(fib[i-1] + fib[i-2])
+
+  return fib
+
+
+
+lista_fib = fibonacci(10)
+intervalo = interspace(6 , 16)
+lista_desde = fibonacci_since(13, 10)
+adiante = fibonacci_forth(13, 10)
+
+
+print(lista_fib)
+print(intervalo)
+print(lista_desde)
+print(adiante)
